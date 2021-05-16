@@ -1,0 +1,2 @@
+alumno:id_al-int,nombre-char(12),semestre-int
+alumnoss:id_alumno-int,nombre-char(4),apellido-char(5),fecha_nac-date
