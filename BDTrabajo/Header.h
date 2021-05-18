@@ -5,7 +5,8 @@
 #include <fstream>
 #include <vector>
 #include <algorithm>
-
+#include <iomanip>
+#include <cstdio>
 using namespace std;
 
 // ================ DECLARACIONES ================
@@ -24,16 +25,22 @@ void parsear(string str, vector<string> &palabras, char separator=' ');
 void parsear(string str, vector<string>& palabras, vector<int> datatype);
 int getTamRegistro(vector<int>tipodato);
 
+void imprimirRegistro(vector<string> columnas, vector<int> tipoDatos);
+int imprimirCabeceras(vector<string> colName, vector<int> tipoDatos);
+
 template <typename T>
 int findVec(vector <T> vec, T value);
 int findVecMm(vector<string> vec, string value);
 
+//No usamos comparar Registro
 template <typename T>
 bool CompararRegistro(T value,int posCol,string operador,string registro, vector<int> tipoDato);
-
-int bytesToInt(char* c);
-
+bool comparadita(string val, string reg, int tipo, string op);
+int bytesToInt(char* c);//Mandar &str[0]
+bool empty(vector<string> vec);
 //CORE
+void runDB();
+bool dropDB();
 bool exeCommad(string cmd);
 
 bool crear(string cmd);
@@ -42,3 +49,11 @@ bool select(string cmd);
 bool borrar(string cmd);
 bool modificar(string cmd);
 string getCol(string registro, int indice, vector<int> tipoDato);
+bool modify(FILE* ptr, int pos, string value, int dataType);
+//A
+void string_to_charA(std::string s, char* A, int Atam);
+int tam_reg(std::string t_name);
+bool esnulo(char* array, int tam);
+long get_size(std::string file);
+int erase(std::string t_name, FILE*& stream);
+int mod(string t_name, FILE*& stream, string col, string valor);
